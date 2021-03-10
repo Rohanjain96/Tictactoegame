@@ -141,12 +141,12 @@ int minimax(int depth,bool ismaxplayer)
         {
             board[i].value=computer;
             bestscore=minimax(depth+1,false);
-            bestscore=max(best,bestscore);
+            best=max(best,bestscore);
             board[i].value='_';
         }
         }
 
-        return bestscore;
+        return best;
     }
     else
     {
@@ -157,11 +157,11 @@ int minimax(int depth,bool ismaxplayer)
         {
             board[i].value=human;
             bestscore=minimax(depth+1,true);
-            bestscore=min(best,bestscore);
+            best=min(best,bestscore);
             board[i].value='_';
         }
         }
-     return bestscore;
+     return best;
     }
 }
 
